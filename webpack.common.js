@@ -16,6 +16,10 @@ export default {
     module: {
         rules: [
             {
+                test: /\.([cm]?ts|tsx)$/,
+                loader: "ts-loader",
+            },
+            {
                 test: /\.css$/i,
                 use: ["style-loader", "css-loader"],
             },
@@ -24,5 +28,13 @@ export default {
                 type: "asset/resource",
             },
         ],
+    },
+    resolve: {
+        extensions: ['.ts', '.tsx', '.js'],
+        extensionAlias: {
+            '.ts': ['.js', '.ts'],
+            '.cts': ['.cjs', '.cts'],
+            '.mts': ['.mjs', '.mts'],
+        },
     },
 };
