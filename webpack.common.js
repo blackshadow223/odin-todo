@@ -2,7 +2,7 @@ import path from "path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 
 export default {
-    entry: "./src/index.js",
+    entry: "./src/main.ts",
     output: {
         filename: "app.js",
         path: path.resolve("./dist"),
