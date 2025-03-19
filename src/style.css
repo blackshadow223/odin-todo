@@ -5,3 +5,438 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+:root {
+    line-height: 1.5rem;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+    color: inherit;
+    background-color: inherit;
+    font-size: inherit;
+    border: 1px solid black;
+    padding: 4px 8px;
+    cursor: pointer;
+    outline: none;
+}
+
+
+.container {
+    display: grid;
+    grid-template-rows: 80px 3fr;
+    grid-template-columns: clamp(150px, 33%, 300px) 1fr;
+    grid-template-areas: 
+        "header header"
+        "sidebar main";
+    height: 100%;
+    transition: .3s grid-template-columns ease-in-out;
+}
+
+.container.sidebar-hidden {
+    grid-template-columns: 0px 1fr;
+}
+
+
+.header {
+    grid-area: header;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 16px;
+
+    background-color: rgb(245, 245, 245);
+}
+
+.header-separator {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.hamburger {
+    color: inherit;
+    background-color: inherit;
+    padding: 4px 12px;
+    border: 1px solid black;
+    cursor: pointer;
+    transition: .1s background-color ease;
+}
+
+.hamburger:hover {
+    color: white;
+    background-color: black;
+}
+
+.header-add-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: black;
+    font-size: 1.25rem;
+    padding: 6px 16px 6px 0px;
+    border: 1px solid black;
+    cursor: pointer;
+    transition: .1s background-color ease;
+}
+
+.header-add-button > span {
+    padding: 0px 8px;
+}
+
+.header-add-button:hover {
+    color: black;
+    background-color: white;
+}
+
+
+.sidebar,
+.side,
+.nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    gap: 32px;
+    background-color: rgb(245, 245, 245);
+    padding: 0px 16px;
+    transition: .2s visibility ease-in-out;
+}
+
+.sidebar.hidden {
+    visibility: hidden;
+}
+
+.side {
+    gap: 16px;
+}
+
+.side > h2 {
+    line-height: 2.5rem;
+    border-bottom: 2px solid black;
+    user-select: none;
+}
+
+.nav {
+    list-style: none;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 4px 8px;
+    transition: .1s background-color ease-in-out;
+    cursor: pointer;
+    user-select: none;
+}
+
+.nav-link.active {
+    background-color: rgb(200, 200, 200);
+}
+
+.nav-link:hover {
+    background-color: lightgrey;
+}
+
+
+.nav-buttons-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.nav-delete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    color: red;
+    background-color: inherit;
+    font-size: 1.5rem;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.nav-delete:active {
+    transform: translateY(2px);
+}
+
+.nav-delete:hover {
+    background-color: rgb(170, 170, 170);
+}
+
+.nav-edit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    color: blue;
+    font-size: 1.5rem;
+    border: 1px solid transparent;
+    border-radius: 50%;
+}
+
+.nav-edit:active {
+    transform: translateY(2px);
+}
+
+.nav-edit:hover {
+    background-color: rgb(170, 170, 170);
+}
+
+
+.add-project-button {
+    color: inherit;
+    background-color: rgb(225, 225, 225);
+    font-size: 1.5rem;
+    border: none;
+    padding: 4px 8px;
+    cursor: pointer;
+    transition: .1s background-color ease;
+}
+
+.add-project-button:hover {
+    background-color: lightgrey;
+}
+
+.add-project-input {
+    font-size: 1rem;
+    padding: 4px 8px;
+}
+
+
+.main {
+    grid-area: main;
+
+    background-color: rgb(245, 245, 245);
+    padding: 24px;
+}
+
+.todo-container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.todo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    border: 2px solid transparent;
+    user-select: none;
+    cursor: pointer;
+}
+
+.todo:hover {
+    background-color: rgb(225, 225, 225);
+}
+
+.todo.low {
+    border-color: black;
+}
+
+.todo.medium {
+    border-color: orange;
+}
+
+.todo.high {
+    border-color: red;
+}
+
+.todo-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.check {
+    font-size: 1.5rem;
+    user-select: none;
+    cursor: pointer;
+}
+
+.check:active {
+    transform: translateY(2px);
+}
+
+.todo-tail {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.todo-date {
+    font-size: .8rem;
+    border: 1px solid black;
+    padding: 0px 4px;
+    border-radius: 16px;
+}
+
+.todo-edit {
+    color: blue;
+    border: none;
+}
+
+.todo-edit:hover {
+    color: rgb(0, 100, 255);
+    transform: translateY(2px);
+}
+
+.todo-delete {
+    color: red;
+    border: none;
+}
+
+.todo-delete:hover {
+    color: rgb(255, 100, 0);
+    transform: translateY(2px);
+}
+
+
+
+
+.dialog {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    width: 50vw;
+    top: 0%;
+
+    background-color: rgb(225, 225, 225);
+    margin: auto;
+    padding: 16px;
+    border: none;
+
+    z-index: 1000;
+    opacity: 0;
+    transition: .3s opacity ease, .3s top ease;
+
+    outline: none;
+}
+
+.dialog::backdrop {
+    background-color: rgba(0, 0, 0, .8);
+
+    /* Animation/Transition Effect  */
+    opacity: var(--backdrop-opacity, 0);
+    transition: .3s opacity ease;
+}
+
+.dialog-close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    border-left: 1px solid red;
+    border-bottom: 1px solid red;
+    padding: 4px 24px;
+    font-size: 1.25rem;
+}
+
+.dialog-close-button:hover {
+    color: white;
+    background-color: red;
+}
+
+.dialog-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.dialog-content-heading {
+    border-bottom: 2px solid black;
+}
+
+.dialog-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    padding: 0px 16px;
+}
+
+.dialog-cancel-button {
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: .1s background-color ease;
+}
+
+.dialog-cancel-button:active {
+    transform: translateY(2px);
+}
+
+.dialog-ok-button {
+    color: white;
+    background-color: black;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: .1s background-color ease;
+}
+
+.dialog-ok-button:active {
+    transform: translateY(2px);
+}
+
+.todo-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px;
+}
+
+.todo-form-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.todo-form-field > input,
+.todo-form-field > select,
+.todo-form-field > textarea {
+    width: 16rem;
+    height: 1.75rem;
+    font-size: 1.125rem;
+    border: none;
+    padding: 8px;
+}
+
+.todo-form-field > select {
+    padding: 4px;
+}
+
+.todo-form-field > textarea {
+    width: 16rem;
+    height: 5rem;
+}
+
+
+.reset-button {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.reset-button:hover {
+    color: white;
+    background-color: black;
+}

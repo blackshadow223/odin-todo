@@ -4,14 +4,14 @@
   "_version": "23.0.0",
 
   "compilerOptions": {
-    "lib": ["ES2024"],
+    "lib": ["ES2024", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "target": "ES2024",
 
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "moduleResolution": "bundler",
+    "moduleResolution": "Node",
 
     "outDir": "./dist",
     "sourceMap": true,
